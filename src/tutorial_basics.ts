@@ -5,8 +5,8 @@ let isLoggedIn: boolean = true;
 let message1: string = isLoggedIn ? "User is logged in" : "User is not logged in";
 console.log(message1);
 console.log("-----------------------------------------------------"); 
+
 //example of for in loop
-// تعريف كائن المستخدم  
 // with properties id, name, and email
 let user = {
     id: 1,
