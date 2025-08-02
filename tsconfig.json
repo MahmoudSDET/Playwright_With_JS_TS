@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2024",
     "module": "commonjs",
-    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "lib": ["ES2024", "dom", "esnext.asynciterable"],
     "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,

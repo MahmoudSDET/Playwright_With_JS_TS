@@ -32,10 +32,116 @@ console.log("-----------------------------------------------------");
 let x = 10;
 x = "Hello";
 console.log(`The value of x is: ${x}`);
-let array = [1, 2, 3, 4, 5];
-array.push(6);
-console.log(array);
 console.log("-----------------------------------------------------");
+// example of array with pop and push methods
+let numbersArray = [1, 2, 3];
+numbersArray.push(4);
+console.log(`Array after push: ${numbersArray}`);
+numbersArray.pop();
+console.log(`Array after pop: ${numbersArray}`);
+console.log("-----------------------------------------------------");
+// example of array with map method
+let squaredNumbers = numbersArray.map(num => num * num);
+console.log(`Squared numbers: ${squaredNumbers}`);
+console.log("-----------------------------------------------------");
+// example of array with filter method
+let evenNumbers = numbersArray.filter(num => num % 2 === 0);
+console.log(`Even numbers: ${evenNumbers}`);
+console.log("-----------------------------------------------------");
+// example of array with reduce method
+let sumOfNumbers = numbersArray.reduce((acc, num) => acc + num, 0);
+console.log(`Sum of numbers: ${sumOfNumbers}`);
+console.log("-----------------------------------------------------");
+// example of array with slice method
+let slicedArray = numbersArray.slice(1, 3);
+console.log(`Sliced array: ${slicedArray}`);
+console.log("-----------------------------------------------------");
+// example of array with splice method
+let splicedArray = numbersArray.splice(1, 2, 10, 20);
+console.log(`Array after splice: ${numbersArray}`);
+console.log("-----------------------------------------------------");
+//example of array with concat method
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+let concatenatedArray = array1.concat(array2);
+console.log(`Concatenated array: ${concatenatedArray}`);
+console.log("-----------------------------------------------------");
+// example of array with join method
+let joinedString = concatenatedArray.join(", ");
+console.log(`Joined string: ${joinedString}`);
+console.log("-----------------------------------------------------");
+// example of array with indexOf method
+let index = concatenatedArray.indexOf(4);
+console.log(`Index of 4: ${index}`);
+console.log("-----------------------------------------------------");
+// example of array with includes method
+let includesFour = concatenatedArray.includes(4);
+console.log(`Includes 4: ${includesFour}`);
+console.log("-----------------------------------------------------");
+// example of array with find method
+let foundNumber = concatenatedArray.find(num => num > 4);
+console.log(`Found number greater than 4: ${foundNumber}`);
+console.log("-----------------------------------------------------");
+// example of array with findIndex method
+let foundIndex = concatenatedArray.findIndex(num => num > 4);
+console.log(`Index of number greater than 4: ${foundIndex}`);
+console.log("-----------------------------------------------------");
+// example of array with every method
+let allEven = concatenatedArray.every(num => num % 2 === 0);
+console.log(`All numbers are even: ${allEven}`);
+console.log("-----------------------------------------------------");
+// example of array with filter and map methods combined
+let evenSquaredNumbers = concatenatedArray.filter(num => num % 2 === 0).map(num => num * num);
+console.log(`Even squared numbers: ${evenSquaredNumbers}`);
+console.log("-----------------------------------------------------");
+// example of array wih shift and unshift methods
+let shiftedArray = concatenatedArray.slice();
+shiftedArray.shift();
+shiftedArray.unshift(0);
+console.log(`Shifted array: ${shiftedArray}`);
+console.log("-----------------------------------------------------");
+// example of array with forEach method
+concatenatedArray.forEach(num => {
+    console.log(`Number: ${num}`);
+});
+console.log("-----------------------------------------------------");
+// example of array with reduceRight method
+let sumOfNumbersRight = concatenatedArray.reduceRight((acc, num) => acc + num, 0);
+console.log(`Sum of numbers right: ${sumOfNumbersRight}`);
+console.log("-----------------------------------------------------");
+// example of array with flat method
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let flatArray = nestedArray.flat();
+console.log(`Flat array: ${flatArray}`);
+console.log("-----------------------------------------------------");
+// example of array with flatMap method
+let flatMappedArray = nestedArray.flatMap(arr => arr.map(num => num * 2));
+console.log(`Flat mapped array: ${flatMappedArray}`);
+console.log("-----------------------------------------------------");
+// example of array with sort method
+let sortedArray = concatenatedArray.slice().sort((a, b) => a - b);
+console.log(`Sorted array: ${sortedArray}`);
+console.log("-----------------------------------------------------");
+// example of array with reverse method
+let reversedArray = concatenatedArray.slice().reverse();
+console.log(`Reversed array: ${reversedArray}`);
+console.log("-----------------------------------------------------");
+// example of array with fill method
+let filledArray = new Array(5).fill(0);
+console.log(`Filled array: ${filledArray}`);
+console.log("-----------------------------------------------------");
+// example of array with copyWithin method
+let copyWithinArray = concatenatedArray.slice();
+copyWithinArray.copyWithin(1, 3, 5);
+console.log(`Copy within array: ${copyWithinArray}`);
+console.log("-----------------------------------------------------");
+// example of array with toString method
+let arrayToString = concatenatedArray.toString();
+console.log(`Array to string: ${arrayToString}`);
+console.log("-----------------------------------------------------");
+// example of array with some method
+let someEven = concatenatedArray.some(num => num % 2 === 0);
+console.log(`Some numbers are even: ${someEven}`);
 //using generic function
 function genericFunction(arg) {
     return arg;
@@ -73,8 +179,7 @@ processTuple([42, "Answer to the Ultimate Question of Life, the Universe, and Ev
 console.log("-----------------------------------------------------");
 //example of tuple with optional element
 function processOptionalTuple(tuple) {
-    var _a, _b;
-    console.log(`Processing optional tuple: ${tuple[0]}, ${(_a = tuple[1]) !== null && _a !== void 0 ? _a : "N/A"}, ${(_b = tuple[2]) !== null && _b !== void 0 ? _b : "N/A"}`);
+    console.log(`Processing optional tuple: ${tuple[0]}, ${tuple[1] ?? "N/A"}, ${tuple[2] ?? "N/A"}`);
 }
 processOptionalTuple([42, "Answer to the Ultimate Question of Life, the Universe, and Everything"]);
 console.log("-----------------------------------------------------");
@@ -192,79 +297,8 @@ let sum = function (a, b) {
 };
 console.log(`The sum is: ${sum(1, 2)}`);
 console.log("-----------------------------------------------------");
-// example of arrow function
-let arrowFunction = (message) => {
-    console.log(`Arrow function says: ${message}`);
-};
-arrowFunction("Hello, TypeScript!");
-console.log("-----------------------------------------------------");
-// example of arrow function with parameters
-let multiply = (a, b) => {
-    return a * b;
-};
-console.log(`The product is: ${multiply(3, 4)}`);
-console.log("-----------------------------------------------------");
-// example of arrow function with no parameters
-let greet = () => {
-    console.log("Hello, TypeScript!");
-};
-greet();
-console.log("-----------------------------------------------------");
-// example of arrow function with default parameters
-let greetWithDefault = (name = "User") => {
-    console.log(`Hello, ${name}!`);
-};
-greetWithDefault();
-greetWithDefault("Mahmoud");
-console.log("-----------------------------------------------------");
-// example of arrow function with rest parameters
-let sumWithRest = (...numbers) => {
-    return numbers.reduce((acc, num) => acc + num, 0);
-};
-console.log(`The sum is: ${sumWithRest(1, 2, 3, 4, 5)}`);
-console.log("-----------------------------------------------------");
-// example of arrow function with destructuring
-let printUser = ({ id, name, email }) => {
-    console.log(`ID: ${id}`);
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-};
-printUser({ id: 1, name: "Mahmoud", email: "mahmoud@example.com" });
-console.log("-----------------------------------------------------");
-// example of arrow function with type annotations
-let calculateArea = (width, height) => {
-    return width * height;
-};
-console.log(`The area is: ${calculateArea(5, 10)}`);
-console.log("-----------------------------------------------------");
-// example of arrow function with type inference
-let calculatePerimeter = (width, height) => {
-    return 2 * (width + height);
-};
-console.log(`The perimeter is: ${calculatePerimeter(5, 10)}`);
-console.log("-----------------------------------------------------");
-// example of arrow function with generics
-function identity(arg) {
-    return arg;
-}
-console.log(`The identity is: ${identity("Hello")}`);
-console.log(`The identity is: ${identity(42)}`);
-console.log("-----------------------------------------------------");
-// example of Switch statement
-let day = 3;
-switch (day) {
-    case 1:
-        console.log("Monday");
-        break;
-    case 2:
-        console.log("Tuesday");
-        break;
-    case 3:
-        console.log("Wednesday");
-        break;
-    default:
-        console.log("Invalid day");
-        break;
-}
-console.log("-----------------------------------------------------");
+// example of IIFE function
+(function (message) {
+    console.log(`IIFE function says: ${message}`);
+})("Hello, TypeScript!");
 //# sourceMappingURL=tutorial_basics.js.map

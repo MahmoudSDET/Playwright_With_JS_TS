@@ -1,14 +1,73 @@
 "use strict";
-var _a;
+// example of arrow function
+let arrowFunction = (message) => {
+    console.log(`Arrow function says: ${message}`);
+};
+arrowFunction("Hello, TypeScript!");
+console.log("-----------------------------------------------------");
+// example of arrow function with parameters
+let multiply = (a, b) => {
+    return a * b;
+};
+console.log(`The product is: ${multiply(3, 4)}`);
+console.log("-----------------------------------------------------");
+// example of arrow function with no parameters
+let greet = () => {
+    console.log("Hello, TypeScript!");
+};
+greet();
+console.log("-----------------------------------------------------");
+// example of arrow function with default parameters
+let greetWithDefault = (name = "User") => {
+    console.log(`Hello, ${name}!`);
+};
+greetWithDefault();
+greetWithDefault("Mahmoud");
+console.log("-----------------------------------------------------");
+// example of arrow function with rest parameters
+let sumWithRest = (...numbers) => {
+    return numbers.reduce((acc, num) => acc + num, 0);
+};
+console.log(`The sum is: ${sumWithRest(1, 2, 3, 4, 5)}`);
+console.log("-----------------------------------------------------");
+// example of arrow function with destructuring
+let printUser = ({ id, name, email }) => {
+    console.log(`ID: ${id}`);
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+};
+printUser({ id: 1, name: "Mahmoud", email: "mahmoud@example.com" });
+console.log("-----------------------------------------------------");
+// example of arrow function with type annotations
+let calculateArea = (width, height) => {
+    return width * height;
+};
+console.log(`The area is: ${calculateArea(5, 10)}`);
+console.log("-----------------------------------------------------");
+// example of arrow function with type inference
+let calculatePerimeter = (width, height) => {
+    return 2 * (width + height);
+};
+console.log(`The perimeter is: ${calculatePerimeter(5, 10)}`);
+console.log("-----------------------------------------------------");
+// example of arrow function with generics
+function identity(arg) {
+    return arg;
+}
+console.log(`The identity is: ${identity("Hello")}`);
+console.log(`The identity is: ${identity(42)}`);
+console.log("-----------------------------------------------------");
 // exammple of arrow function in class
 class Person {
+    name;
+    age;
     constructor(name, age) {
         this.name = name;
         this.age = age;
-        this.greet = () => {
-            console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-        };
     }
+    greet = () => {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    };
 }
 const person = new Person("Mahmoud", 25);
 person.greet();
@@ -33,7 +92,7 @@ const obj2 = {
         };
     }
 };
-(_a = obj2.getValue()) === null || _a === void 0 ? void 0 : _a(); // Call the arrow function to see the value
+obj2.getValue()?.(); // Call the arrow function to see the value
 console.log("-----------------------------------------------------");
 // example of optional with arrow function
 const optionalFunction = (callback) => {
@@ -51,7 +110,7 @@ optionalFunction(); // No callback provided
 console.log("-----------------------------------------------------");
 // example of arrow function with nullish coalescing
 const nullishFunction = (value) => {
-    return value !== null && value !== void 0 ? value : "Default Value";
+    return value ?? "Default Value";
 };
 console.log(`The value is: ${nullishFunction("Hello")}`);
 console.log(`The value is: ${nullishFunction(null)}`);
@@ -60,7 +119,7 @@ console.log(`The value is: ${nullishFunction("")}`);
 console.log("-----------------------------------------------------");
 // example of arrow function with optional parameters
 function greet_2(name) {
-    console.log(`Hello, ${name !== null && name !== void 0 ? name : "Guest"}`);
+    console.log(`Hello, ${name ?? "Guest"}`);
 }
 greet_2("Mahmoud");
 greet_2(); // No name provided, will use default "Guest"

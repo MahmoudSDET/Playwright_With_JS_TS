@@ -1,3 +1,66 @@
+
+// example of arrow function
+let arrowFunction = (message: string): void => {
+    console.log(`Arrow function says: ${message}`);
+}
+
+arrowFunction("Hello, TypeScript!");
+console.log("-----------------------------------------------------"); 
+// example of arrow function with parameters
+let multiply = (a: number, b: number): number => {
+    return a * b;
+}
+console.log(`The product is: ${multiply(3, 4)}`);
+console.log("-----------------------------------------------------"); 
+// example of arrow function with no parameters
+let greet = (): void => {
+    console.log("Hello, TypeScript!");
+}
+greet();
+console.log("-----------------------------------------------------");
+// example of arrow function with default parameters
+let greetWithDefault = (name: string = "User"): void => {
+    console.log(`Hello, ${name}!`);
+}
+greetWithDefault();
+greetWithDefault("Mahmoud");
+console.log("-----------------------------------------------------");
+// example of arrow function with rest parameters
+let sumWithRest = (...numbers: number[]): number => {
+    return numbers.reduce((acc, num) => acc + num, 0);
+}    
+console.log(`The sum is: ${sumWithRest(1, 2, 3, 4, 5)}`);
+console.log("-----------------------------------------------------");
+// example of arrow function with destructuring
+let printUser = ({ id, name, email }: { id: number; name: string; email: string }): void => {
+    console.log(`ID: ${id}`);
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+}    
+printUser({ id: 1, name: "Mahmoud", email: "mahmoud@example.com" });
+console.log("-----------------------------------------------------");
+// example of arrow function with type annotations
+let calculateArea = (width: number, height: number): number => {
+    return width * height;
+}    
+console.log(`The area is: ${calculateArea(5, 10)}`);   
+console.log("-----------------------------------------------------"); 
+// example of arrow function with type inference
+let calculatePerimeter = (width: number, height: number) => {
+    return 2 * (width + height);
+}  
+console.log(`The perimeter is: ${calculatePerimeter(5, 10)}`);  
+console.log("-----------------------------------------------------");
+// example of arrow function with generics
+function identity<T>(arg: T): T {
+    return arg;
+}    
+console.log(`The identity is: ${identity<string>("Hello")}`);  
+console.log(`The identity is: ${identity<number>(42)}`);
+console.log("-----------------------------------------------------"); 
+
+
+
 // exammple of arrow function in class
 class Person {
     constructor(public name: string, public age: number) {}
