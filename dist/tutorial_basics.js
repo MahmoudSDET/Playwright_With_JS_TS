@@ -1,11 +1,11 @@
 "use strict";
+console.log("-----------------------------------------------------");
 // example of basic Ternary operation
 let isLoggedIn = true;
 let message1 = isLoggedIn ? "User is logged in" : "User is not logged in";
 console.log(message1);
 console.log("-----------------------------------------------------");
 //example of for in loop
-// تعريف كائن المستخدم  
 // with properties id, name, and email
 let user = {
     id: 1,

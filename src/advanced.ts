@@ -1,4 +1,4 @@
-
+ export {};
 // example of arrow function
 let arrowFunction = (message: string): void => {
     console.log(`Arrow function says: ${message}`);
@@ -157,6 +157,8 @@ const fetchData = (url: string): Promise<string> => {
 fetchData("https://api.example.com/data")
     .then((data) => {
         console.log(data);
+        
+       
     })
     .catch((error) => {
         console.error(error);
@@ -256,3 +258,104 @@ async function main4() {
     }
 }
 main4(); 
+
+function fetchDataWithCallback(callback:any){
+return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (callback) {
+            resolve(callback("Data fetched successfully"));
+        } else {
+            reject("No callback provided");
+        }
+    }, 1000);
+}); 
+
+}
+
+fetchDataWithCallback((message: string) => {
+    console.log(message);
+})
+.catch((error: string) => {
+    console.error(error);
+});
+
+
+// calling with async/await
+async function fetchDataWithCallbackAsync(callback: any) {
+    try {
+        const result = await fetchDataWithCallback(callback);
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+fetchDataWithCallbackAsync((message: string) => {
+    return message;
+});
+console.log("-----------------------------------------------------");
+function fetchDataWithCallbackAsync2(callback?: () => void): Promise<string> {
+    // This function simulates fetching data with an optional callback
+    // If a callback is provided, it will be executed after the data is fetched
+    return new Promise((resolve)=> {
+        setTimeout(() => {
+            if (callback) {
+                console.log("Callback is provided");
+                const data= "Data fetched successfully";
+                resolve(data);
+            } else {
+                resolve("No callback provided");
+            }
+        }, 1000);
+        
+    })
+}
+// calling with promises with then/catch
+fetchDataWithCallbackAsync2(() => {
+    console.log("Callback executed");
+}).then((result: unknown) => {
+    console.log(result);
+}).catch((error: string) => {
+    // ...
+});
+console.log("-----------------------------------------------------");
+//calling with promises with async/await with callback with IIFFE
+(async () => {
+  try {
+    const data = await fetchDataWithCallbackAsync2(() => {
+      console.log("Callback executed");
+    });
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+// Declare a named async function
+async function runFetchData() {
+  try {
+    const data = await fetchDataWithCallbackAsync2(() => {
+      console.log("Callback executed");
+    });
+    console.log("Final Result:", data);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// ✅ Call the function explicitly
+runFetchData();
+// calling with promises with async/await without callback
+(async () => {
+  const data = await fetchDataWithCallbackAsync2();
+  console.log(data);
+})();
+
+console.log("-----------------------------------------------------");
+
+// calling with async/await without callback 2
+async function callingWithAsync() {
+  const result = await fetchDataWithCallbackAsync2();
+  console.log("Result:", result);
+}
+
+callingWithAsync();
+console.log("-----------------------------------------------------");
