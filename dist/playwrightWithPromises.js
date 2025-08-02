@@ -39,9 +39,10 @@ playwright_1.chromium.launch({ headless: true })
     .then((context) => createPage(context, browser)))
     .catch(handleError);
 console.log("-----------------------------------------------------");
-// example of using Playwright with async/await
+// example of using Playwright with async/await with an IIFE (Immediately Invoked Function Expression)
+// This is a common pattern to avoid polluting the global scope with async functions.
 (async () => {
-    const browser = await playwright_1.chromium.launch({ headless: false });
+    const browser = await playwright_1.chromium.launch({ headless: true });
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://testautomationpractice.blogspot.com/');
@@ -50,4 +51,21 @@ console.log("-----------------------------------------------------");
     await browser.close();
 })().catch(err => console.error('Error:', err));
 console.log("-----------------------------------------------------");
+// example of using Playwright with async/await with named function
+async function openTestAutomationPractice() {
+    try {
+        const browser = await playwright_1.chromium.launch({ headless: true });
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        await page.goto('https://testautomationpractice.blogspot.com/');
+        const text = await page.textContent('h1');
+        console.log('Heading:', text);
+        await browser.close();
+    }
+    catch (err) {
+        console.error('Error:', err);
+    }
+}
+// ✅ Call the method explicitly
+openTestAutomationPractice();
 //# sourceMappingURL=playwrightWithPromises.js.map

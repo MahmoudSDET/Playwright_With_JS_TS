@@ -49,9 +49,10 @@ chromium.launch({ headless: true })
   .catch(handleError);
 
 console.log("-----------------------------------------------------");
-// example of using Playwright with async/await
+// example of using Playwright with async/await with an IIFE (Immediately Invoked Function Expression)
+// This is a common pattern to avoid polluting the global scope with async functions.
 (async () => {
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto('https://testautomationpractice.blogspot.com/');
@@ -64,7 +65,7 @@ console.log("-----------------------------------------------------");
 // example of using Playwright with async/await with named function
 async function openTestAutomationPractice() {
   try {
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext();
     const page = await context.newPage();
 
