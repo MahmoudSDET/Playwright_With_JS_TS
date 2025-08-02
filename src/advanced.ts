@@ -293,7 +293,7 @@ fetchDataWithCallbackAsync((message: string) => {
     return message;
 });
 console.log("-----------------------------------------------------");
-function fetchDataWithCallbackAsync2(callback?: () => void): Promise<string> {
+function fetchDataWithCallbackAsync2(callback?: any){
     // This function simulates fetching data with an optional callback
     // If a callback is provided, it will be executed after the data is fetched
     return new Promise((resolve)=> {
