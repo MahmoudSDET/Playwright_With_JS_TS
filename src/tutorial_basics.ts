@@ -1,4 +1,5 @@
 
+console.log("-----------------------------------------------------");
 // example of basic Ternary operation
 let isLoggedIn: boolean = true;
 let message1: string = isLoggedIn ? "User is logged in" : "User is not logged in";
