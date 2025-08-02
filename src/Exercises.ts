@@ -7,16 +7,37 @@ const uniqueNumbers = removeDuplicates(numbersArrays);
 console.log(`Unique numbers: ${uniqueNumbers}`); 
 console.log("-----------------------------------------------------");
 // example of counting occurrences of elements in an array
-const countOccurrences = (arr: any[]): { [key: string]: number } => {
-    return arr.reduce((acc, item) => {
-        acc[item] = (acc[item] || 0) + 1;
-        return acc;
-    }, {});
+const countOccurrences = (arr: any[]): Map<any, number> => {
+    const occurrences = new Map<any, number>();
+    arr.forEach(item => {
+        occurrences.set(item, (occurrences.get(item) || 0) + 1);
+    });
+    return occurrences;
 }
-const numbersArray_2: number[] = [1, 2, 2, 3, 4, 4, 5];
-const occurrences = countOccurrences(numbersArray_2);
-console.log(`Occurrences: ${JSON.stringify(occurrences)}`);
+const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+const occurrences = countOccurrences(fruits);
+console.log(
+  `Occurrences: ${JSON.stringify(Object.fromEntries(occurrences))}`
+);
 console.log("-----------------------------------------------------");
+// example of  count occurrences of elements in an array of numbers
+const items = [1, 2, 1, 2, 3, 4, 3];
+const countMap: Record<string, number> = {};
+
+for (const item of items) {
+  countMap[item] = (countMap[item] || 0) + 1;
+}
+console.log(countMap);
+console.log("-----------------------------------------------------");
+// example of finding the intersection of two arrays
+const intersection = (arr1: any[], arr2: any[]): any[] => {
+    return arr1.filter(item => arr2.includes(item));
+}
+const array3 = [1, 2, 3, 4, 5];
+const array4 = [3, 4, 5, 6, 7];
+const intersectionResult = intersection(array3, array4);
+console.log(`Intersection: ${intersectionResult}`);
+console.log("-----------------------------------------------------");   
 // example of palindrome check
 const isPalindrome = (str: string): boolean => {
     const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
