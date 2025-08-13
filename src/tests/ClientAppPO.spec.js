@@ -1,0 +1,94 @@
+ const {test, expect} = require('@playwright/test');
+ const {customtest} = require('../utils/test-base');
+
+ const {POManager} = require('../../pageobjects/POManager');
+ //Json->string->js object
+ const dataset =  JSON.parse(JSON.stringify(require("../utils/placeorderTestData.json")));
+
+ /*
+for(const data of dataset)
+{
+ test(`@Webs Client App login for ${data.productName}`, async ({page})=>
+ {
+   const poManager = new POManager(page);
+    //js file- Login js, DashboardPage
+     const products = page.locator(".card-body");
+     const loginPage = poManager.getLoginPage();
+     await loginPage.goTo();
+     await loginPage.validLogin(data.username,data.password);
+     const dashboardPage = poManager.getDashboardPage();
+     await dashboardPage.searchProductAddCart(data.productName);
+     await dashboardPage.navigateToCart();
+
+    const cartPage = poManager.getCartPage();
+    await cartPage.VerifyProductIsDisplayed(data.productName);
+    await cartPage.Checkout();
+
+    const ordersReviewPage = poManager.getOrdersReviewPage();
+    await ordersReviewPage.searchCountryAndSelect("ind","India");
+    const orderId = await ordersReviewPage.SubmitAndGetOrderId();
+   console.log(orderId);
+   await dashboardPage.navigateToOrders();
+   const ordersHistoryPage = poManager.getOrdersHistoryPage();
+   await ordersHistoryPage.searchOrderAndSelect(orderId);
+   expect(orderId.includes(await ordersHistoryPage.getOrderId())).toBeTruthy();
+
+
+
+
+
+
+    
+ });
+}*/
+
+dataset.forEach(data => {
+  customtest(`Client App login - ${data.productName}`, async ({ page }) => {
+    const poManager = new POManager(page);
+    const loginPage = poManager.getLoginPage();
+
+    await loginPage.goTo();
+    await loginPage.validLogin(data.username, data.password);
+
+    const dashboardPage = poManager.getDashboardPage();
+    await dashboardPage.searchProductAddCart(data.productName);
+    await dashboardPage.navigateToCart();
+
+    const cartPage = poManager.getCartPage();
+    await cartPage.VerifyProductIsDisplayed(data.productName);
+    await cartPage.Checkout();
+  });
+});
+
+ //Json->string->js object
+ const dataset_2 = require("../utils/placeorderTestData.json");
+
+test.describe.parallel('Client App login tests with parallel', () => {
+  dataset_2.forEach((testData) => {
+    test(`Login & place order - ${testData.productName}`, async ({ page }) => {
+      const poManager = new POManager(page);
+      const loginPage = poManager.getLoginPage();
+
+      await loginPage.goTo();
+      await loginPage.validLogin(testData.username, testData.password);
+
+      const dashboardPage = poManager.getDashboardPage();
+      await dashboardPage.searchProductAddCart(testData.productName);
+    /*  await dashboardPage.navigateToCart();
+
+      const cartPage = poManager.getCartPage();
+      await cartPage.VerifyProductIsDisplayed(testData.productName);
+      await cartPage.Checkout();*/
+    });
+  });
+});
+//test files will trigger parallel
+//individual tests in the file will run in sequence
+ 
+
+ 
+
+
+
+ 
+
