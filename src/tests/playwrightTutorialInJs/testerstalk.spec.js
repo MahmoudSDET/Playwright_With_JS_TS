@@ -37,7 +37,7 @@ let testData = null;
 })
 
 const records = parse (
-    fs.readFileSync(path.join(__dirname,"../test-data/qa/testdata.csv")),
+    fs.readFileSync(path.join(__dirname,"../../test-data/qa/testdata.csv")),
     {
         columns: true,
         skip_empty_lines:true,
