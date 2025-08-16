@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "regression": "npx playwright test",
-    "webTest": "npx playwright test --grep @Webst",
+    "webTest": "npx playwright test --grep @Webst --reporter=line,allure-playwright && npx allure generate ./allure-results --clean -o ./allure-report --single-file && npx allure open ./allure-report",
     "apiTest": "npx playwright test --grep @API",
     "playwrightTutorial": "npx playwright test --config=playwright.config2.js"
   },
