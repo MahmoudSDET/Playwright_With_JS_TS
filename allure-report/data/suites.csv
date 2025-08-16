@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","10325","@Webst Client App login","","Sun Aug 17 00:08:30 EET 2025","passed","Sun Aug 17 00:08:40 EET 2025","","ClientAppOtherWay.spec.js","",""
+"","10823","@Webst Client App login","","Sun Aug 17 00:08:30 EET 2025","passed","Sun Aug 17 00:08:41 EET 2025","","ClientApp.spec.js","",""
+"","10144","@Webst Client App login","","Sun Aug 17 00:08:30 EET 2025","passed","Sun Aug 17 00:08:40 EET 2025","","RunningWithDDT_1.spec.js","",""

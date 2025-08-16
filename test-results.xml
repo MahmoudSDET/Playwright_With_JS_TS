@@ -1,2 +1,31 @@
-<testsuites id="" name="" tests="0" failures="0" skipped="0" errors="0" time="5.826859000000001">
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="13.804281999999999">
+<testsuite name="ClientApp.spec.js" timestamp="2025-08-16T22:08:29.397Z" hostname="" tests="1" failures="0" skipped="0" time="10.823" errors="0">
+<testcase name="@Webst Client App login" classname="ClientApp.spec.js" time="10.823">
+<system-out>
+<![CDATA[[ [32m'ZARA COAT 3'[39m, [32m'ADIDAS ORIGINAL'[39m, [32m'IPHONE 13 PRO'[39m ]
+ | 68a101686f585eb60d7d8652 | 
+
+[[ATTACHMENT|test-results\ClientApp--Webst-Client-App-login\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ClientAppOtherWay.spec.js" timestamp="2025-08-16T22:08:29.397Z" hostname="" tests="1" failures="0" skipped="0" time="10.325" errors="0">
+<testcase name="@Webst Client App login" classname="ClientAppOtherWay.spec.js" time="10.325">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\ClientAppOtherWay--Webst-Client-App-login\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="RunningWithDDT_1.spec.js" timestamp="2025-08-16T22:08:29.397Z" hostname="" tests="1" failures="0" skipped="0" time="10.144" errors="0">
+<testcase name="@Webst Client App login" classname="RunningWithDDT_1.spec.js" time="10.144">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\RunningWithDDT_1--Webst-Client-App-login\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
 </testsuites>

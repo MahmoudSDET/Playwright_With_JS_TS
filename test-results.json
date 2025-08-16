@@ -10,7 +10,9 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 3
+    },
     "preserveOutput": "always",
     "reporter": [
       [
@@ -52,7 +54,9 @@
         "outputDir": "D:/Automation_JS_TS/PlaywrightWithJS-TS/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 3
+        },
         "id": "",
         "name": "",
         "testDir": "D:/Automation_JS_TS/PlaywrightWithJS-TS/src/tests",
@@ -70,33 +74,170 @@
     "workers": 6,
     "webServer": null
   },
-  "suites": [],
-  "errors": [
+  "suites": [
     {
-      "message": "Error: Cannot find module '../test-data/stage/google.json'\nRequire stack:\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\playwrightTutorialInJs\\readdatabasedonenv.spec.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\playwright\\lib\\transform\\transform.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\playwright\\lib\\common\\configLoader.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\playwright\\lib\\program.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\@playwright\\test\\cli.js",
-      "stack": "Error: Cannot find module '../test-data/stage/google.json'\nRequire stack:\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\playwrightTutorialInJs\\readdatabasedonenv.spec.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\playwright\\lib\\transform\\transform.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\playwright\\lib\\common\\configLoader.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\playwright\\lib\\program.js\n- D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\node_modules\\@playwright\\test\\cli.js\n    at Object.<anonymous> (D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\playwrightTutorialInJs\\readdatabasedonenv.spec.js:3:62)",
-      "location": {
-        "file": "D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\playwrightTutorialInJs\\readdatabasedonenv.spec.js",
-        "column": 62,
-        "line": 3
-      },
-      "snippet": "\u001b[90m   at \u001b[39mplaywrightTutorialInJs\\readdatabasedonenv.spec.js:3\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[90m// Include playwright module\u001b[39m\n \u001b[90m 2 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { qaTestData } \u001b[36mfrom\u001b[39m \u001b[32m'../../test-data/qa/google.json'\u001b[39m\u001b[33m;\u001b[39m \u001b[36mimport\u001b[39m { stageTestData } \u001b[36mfrom\u001b[39m \u001b[32m'../test-data/stage/google.json'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 4 |\u001b[39m\n \u001b[90m 5 |\u001b[39m \u001b[36mlet\u001b[39m testData \u001b[33m=\u001b[39m \u001b[36mnull\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\u001b[0m"
+      "title": "ClientApp.spec.js",
+      "file": "ClientApp.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "@Webst Client App login",
+          "ok": true,
+          "tags": [
+            "Webst"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10823,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[ \u001b[32m'ZARA COAT 3'\u001b[39m, \u001b[32m'ADIDAS ORIGINAL'\u001b[39m, \u001b[32m'IPHONE 13 PRO'\u001b[39m ]\n"
+                    },
+                    {
+                      "text": " | 68a101686f585eb60d7d8652 | \n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-08-16T22:08:30.294Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\test-results\\ClientApp--Webst-Client-App-login\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "756b2e3d635df17cc925-2ea9e338806ee0c84f32",
+          "file": "ClientApp.spec.js",
+          "line": 4,
+          "column": 1
+        }
+      ]
     },
     {
-      "message": "Error: ENOENT: no such file or directory, open 'D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\test-data\\qa\\testdata.csv'",
-      "stack": "Error: ENOENT: no such file or directory, open 'D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\test-data\\qa\\testdata.csv'\n    at Object.<anonymous> (D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\playwrightTutorialInJs\\testerstalk.spec.js:40:8)",
-      "location": {
-        "file": "D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\src\\tests\\playwrightTutorialInJs\\testerstalk.spec.js",
-        "column": 8,
-        "line": 40
-      },
-      "snippet": "\u001b[90m   at \u001b[39mplaywrightTutorialInJs\\testerstalk.spec.js:40\n\n\u001b[0m \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m \u001b[36mconst\u001b[39m records \u001b[33m=\u001b[39m parse (\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 40 |\u001b[39m     fs\u001b[33m.\u001b[39mreadFileSync(path\u001b[33m.\u001b[39mjoin(__dirname\u001b[33m,\u001b[39m\u001b[32m\"../test-data/qa/testdata.csv\"\u001b[39m))\u001b[33m,\u001b[39m\n \u001b[90m    |\u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 41 |\u001b[39m     {\n \u001b[90m 42 |\u001b[39m         columns\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 43 |\u001b[39m         skip_empty_lines\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m\u001b[0m"
+      "title": "ClientAppOtherWay.spec.js",
+      "file": "ClientAppOtherWay.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "@Webst Client App login",
+          "ok": true,
+          "tags": [
+            "Webst"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10325,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-08-16T22:08:30.300Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\test-results\\ClientAppOtherWay--Webst-Client-App-login\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a984fe491a45d3090f62-10f584fe675f70d4b586",
+          "file": "ClientAppOtherWay.spec.js",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "RunningWithDDT_1.spec.js",
+      "file": "RunningWithDDT_1.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "@Webst Client App login",
+          "ok": true,
+          "tags": [
+            "Webst"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 10144,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-08-16T22:08:30.295Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Automation_JS_TS\\PlaywrightWithJS-TS\\test-results\\RunningWithDDT_1--Webst-Client-App-login\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "98d74d310396a8a2af49-a772c4c4c3aafb94d0d1",
+          "file": "RunningWithDDT_1.spec.js",
+          "line": 3,
+          "column": 1
+        }
+      ]
     }
   ],
+  "errors": [],
   "stats": {
-    "startTime": "2025-08-16T22:01:11.057Z",
-    "duration": 5826.859,
-    "expected": 0,
+    "startTime": "2025-08-16T22:08:28.824Z",
+    "duration": 13804.282,
+    "expected": 3,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
