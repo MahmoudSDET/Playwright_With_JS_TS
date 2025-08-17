@@ -30,7 +30,7 @@ export default defineConfig({
     trace: 'on-first-retry', // Tracing في حالة failure
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    headless: true,
+    headless: false,
   },
 
   projects: [

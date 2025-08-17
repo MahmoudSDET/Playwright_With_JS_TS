@@ -7,3 +7,4 @@ node_modules/
 /allure-report/
 /.vscode-test/
 /.nyc_output/
+/reports/

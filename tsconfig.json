@@ -10,7 +10,7 @@
     "sourceMap": true,
     "skipLibCheck": true
   },
-  "include": ["src/TypeScriptTutorial"],
+  "include": ["src/TypeScriptTutorial", "src/features/**/*.ts", "steps/**/*.ts","support/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
 

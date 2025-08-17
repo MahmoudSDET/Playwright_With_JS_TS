@@ -34,7 +34,7 @@ async navigateToOrders()
 
 
 async navigateToCart()
-{
+{  
     await this.cart.click();
 }
 
