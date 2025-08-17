@@ -1,30 +1,50 @@
-const { defineConfig } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
-module.exports = defineConfig({
-  testDir: './src/tests',         // Your test folder
-  timeout: 30 * 1000,             // 30 seconds per test
+export default defineConfig({
+  testDir: 'src/tests', // مسار التستات
+  testMatch: ['**/*.spec.{js,ts}', '**/*.test.{js,ts}'], // أنواع الملفات
+  timeout: 30 * 1000,
   expect: {
-    timeout: 5000                 // 5 seconds for expect()
+    timeout: 5000,
   },
-  fullyParallel: false,            // Allow tests in the same file to run in parallel
-//  forbidOnly: !!process.env.CI,   // Prevent .only in CI
-//  retries: process.env.CI ? 2 : 0,// Retry on CI
-//  workers: process.env.CI ? 2 : 4,// Number of parallel workers
-   reporter: [
-    ['list'],
-    ['html', { open: 'never' }],
-    ['json', { outputFile: 'test-results.json' }],
-    ['junit', { outputFile: 'test-results.xml' }],
-    ['allure-playwright', { outputFolder: 'allure-results' }],
-  ], // HTML + List reporter
+
+  // عدد التستات اللي يشتغلوا في نفس الوقت
+  fullyParallel: false,
+
+  // لو عملت test.only بالغلط
+  forbidOnly: !!process.env.CI,
+
+  // يعمل retry في CI
+  retries: process.env.CI ? 2 : 0,
+
+  // عدد workers
+  workers: process.env.CI ? 2 : undefined,
+
+  reporter: [
+    ['list'], // report عادي
+    ['allure-playwright'], // report Allure
+  ],
 
   use: {
-    browserName: 'chromium',      // chromium, firefox, or webkit
-    headless: false,              // Set to true for CI
-    screenshot: 'on',             // on, off, only-on-failure
-    video: 'retain-on-failure',   // retain-on-failure, on, off
-    trace: 'on-first-retry',      // Useful for debugging
-  //  viewport: { width: 1280, height: 720 },
-    ignoreHTTPSErrors: true
-  }
+    baseURL: 'https://rahulshettyacademy.com',
+    trace: 'on-first-retry', // Tracing في حالة failure
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    headless: true,
+  },
+
+  projects: [
+    {
+      name: 'Chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'Firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'Webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+  ],
 });
