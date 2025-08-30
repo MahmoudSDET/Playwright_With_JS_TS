@@ -301,4 +301,3 @@ console.log("-----------------------------------------------------");
 (function (message) {
     console.log(`IIFE function says: ${message}`);
 })("Hello, TypeScript!");
-//# sourceMappingURL=tutorial_basics.js.map

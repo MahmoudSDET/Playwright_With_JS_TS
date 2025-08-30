@@ -7,7 +7,7 @@
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "skipLibCheck": true
   },
   "include": ["src/TypeScriptTutorial", "src/features/**/*.ts", "steps/**/*.ts","support/**/*.ts"],

@@ -113,4 +113,3 @@ console.log(`Value of message: ${valueOfMessage}`);
 let regex = /TypeScript/;
 let matchResult = message.match(regex);
 console.log(`Match result: ${matchResult}`);
-//# sourceMappingURL=Strings.js.map

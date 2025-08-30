@@ -204,4 +204,3 @@ const json_1 = '{"name": "John", "age": 30}';
 const jsonCheck = isValidJSON(json_1);
 console.log(`Is the JSON valid? ${jsonCheck}`);
 console.log("-----------------------------------------------------");
-//# sourceMappingURL=Exercises.js.map
