@@ -9,3 +9,8 @@ node_modules/
 /.nyc_output/
 /reports/
 *.png
+*.zip
+*.log
+*.tmp
+*.tsbuildinfo
+coverage/

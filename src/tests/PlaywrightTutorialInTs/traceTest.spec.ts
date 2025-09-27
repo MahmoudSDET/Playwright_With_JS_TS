@@ -1,7 +1,21 @@
 import { test, expect } from '@playwright/test';
 
+
+
+test.beforeEach(async ({ context }) => {
+  try {
+    await context.tracing.stop();
+  } catch (e) {
+    // لو ماكانش شغال أصلاً، تجاهل الخطأ
+  }
+  await context.tracing.start({ screenshots: true, snapshots: true });
+});
+
+test.afterEach(async ({ context }, testInfo) => {
+  await context.tracing.stop({ path: `trace-${testInfo.title}.zip` });
+});
+
 test('test', async ({ page, context }) => {
-  await context.tracing.start({snapshots:true, screenshots:true});
 
   await page.goto('https://react-redux.realworld.io/');
   await page.getByRole('link', { name: 'Sign in' }).click();
@@ -14,5 +28,4 @@ test('test', async ({ page, context }) => {
   await page.getByRole('link', { name: ' Settings' }).click();
   await page.getByRole('button', { name: 'Or click here to logout.' }).click();
 
-  await context.tracing.stop({path:'traceTest.zip'})
 });

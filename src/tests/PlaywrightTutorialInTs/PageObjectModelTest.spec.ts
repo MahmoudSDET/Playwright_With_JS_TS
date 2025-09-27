@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import {LandingPage} from '../tests/pages/landingPage';
-import {HomePage} from '../tests/pages/homePage';
-import {SignInPage} from '../tests/pages/signinPage';
-import {SettingsPage} from '../tests/pages/settingsPage';
+import {LandingPage} from '../PlaywrightTutorialInTs/pages/landingPage';
+import {HomePage} from '../PlaywrightTutorialInTs/pages/homePage';
+import {SignInPage} from '../PlaywrightTutorialInTs/pages/signinPage';
+import {SettingsPage} from '../PlaywrightTutorialInTs/pages/settingsPage';
 
 test('Login Conduit test using POM', async ({ page }) => {
   const landingPage = new LandingPage(page);

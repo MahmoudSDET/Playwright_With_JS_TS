@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/pomFixtures';
+import { test, expect } from '../../fixtures/pomFixtures';
 
 test('Login Conduit test using POM', async ({ page, landingPage, homePage, signinPage, settingsPage }) => {
   await page.goto('https://react-redux.realworld.io/');
