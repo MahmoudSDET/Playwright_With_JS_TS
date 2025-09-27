@@ -7,7 +7,7 @@ module.exports = {
    format: ["allure-cucumberjs/reporter"],
     formatOptions: {
       resultsDir: "allure-results"
-    },          // شكل التقرير
+    },          
     paths: ["src/features/**/*.feature"], // مكان feature files
   }
 };
