@@ -1,8 +1,9 @@
 import {test, expect} from '@playwright/test'
 import { SoftAssertions } from '../../utils_ts/SoftAssertions';
+
+ const softAssert = new SoftAssertions();
 test.only('Visible/Hidden Assertion',async({page})=>{
     await page.goto('https://www.letskodeit.com/practice');
-    const softAssert = new SoftAssertions();
     softAssert.softExpect(
     async () => await expect(page.locator('[placeholder="Hide/Show Example"]')).toBeVisible(),
     'Check title'
@@ -33,8 +34,13 @@ test('Enabled/Disabled Assertion',async({page})=>{
 
 test('Text Match/Mismatch Assertion',async({page})=>{
     await page.goto('https://letcode.in/buttons');
-    await expect(page.locator('[id="color"]')).toHaveText('What is my color?');
+    softAssert.softExpect(
+    async () => await expect(page.locator('[id="color"]')).toHaveText('What is my color??'),
+    'Check title'
+  );
+   // await expect(page.locator('[id="color"]')).toHaveText('What is my color??');
     await expect(page.locator('[id="color"]')).not.toHaveText('abcd');
+        softAssert.assertAll();
     await page.close();
 })
 

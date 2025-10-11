@@ -19,3 +19,11 @@ test('Right Click', async ({ page }) => {
   await page.pause();
   await expect(page.locator('#click_type')).toHaveText('Right-Click');
 });
+
+test('Mouse hover', async ({ page }) => {
+  await page.goto('https://play1.automationcamp.ir/mouse_events.html');
+  await page.locator('.dropbtn').hover();
+  await page.getByText("JavaScript").click();
+  await expect(page.locator('id=hover_validate')).toHaveText('JavaScript');
+   await page.pause();
+});
