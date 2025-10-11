@@ -1,12 +1,18 @@
 import {test, expect} from '@playwright/test'
-
+import { SoftAssertions } from '../../utils_ts/SoftAssertions';
 test.only('Visible/Hidden Assertion',async({page})=>{
     await page.goto('https://www.letskodeit.com/practice');
+    const softAssert = new SoftAssertions();
+    softAssert.softExpect(
+    async () => await expect(page.locator('[placeholder="Hide/Show Example"]')).toBeVisible(),
+    'Check title'
+  );
     await expect(page.locator('[placeholder="Hide/Show Example"]')).toBeVisible();
     await page.locator('#hide-textbox').click();
     await expect(page.locator('[placeholder="Hide/Show Example"]')).toBeHidden();
     await page.locator('#show-textbox').click();
     await expect(page.locator('[placeholder="Hide/Show Example"]')).toBeVisible();
+     softAssert.assertAll();
     await page.close();
 })
 
