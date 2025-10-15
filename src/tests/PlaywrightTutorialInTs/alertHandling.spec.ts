@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test('Simple Alert Handling', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
-
+  //   await page.pause();
     page.on("dialog",async(alert)=>{
         const alertMessage = alert.message();
         expect(alertMessage).toEqual('I am a JS Alert');

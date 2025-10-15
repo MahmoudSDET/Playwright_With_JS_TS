@@ -93,3 +93,47 @@ test('Printing all items from all pages Pagination table', async ({ page }) => {
     }
     await page.close();
 })
+
+test('Selecting Multiple after searching using Pagination in case the products are not in the first page', async ({ page }) => {
+  await page.goto('https://testautomationpractice.blogspot.com/');
+
+  const table = page.locator('#productTable');
+  const pages = page.locator('#pagination li a');
+  const totalPages = await pages.count();
+ await page.pause();
+  console.log('Total number of pages:', totalPages);
+
+  const searchedProducts = ['Smartphone', 'Television', 'Router'];
+   let foundCurrentProduct  : number= 0;
+  // Loop through all pages
+  for (let p = 0; p < totalPages; p++) {
+    // Wait for table to be visible on each page
+    await table.waitFor();
+
+    const rows = table.locator('tbody tr');
+    const rowCount = await rows.count();
+
+    console.log(`Checking page ${p + 1} with ${rowCount} rows`);
+
+    for (let i = 0; i < rowCount; i++) {
+      const row = rows.nth(i);
+
+      // Assuming product name is in the 2nd column (index 1)
+      const productName = (await row.locator('td').nth(1).textContent())?.trim();
+
+      if (productName && searchedProducts.includes(productName)) {
+        console.log(`Selecting checkbox for product: ${productName}`);
+        await row.locator('input[type="checkbox"]').check();
+        foundCurrentProduct++
+      }
+    }
+
+    // Click next page if not on the last one
+    if (p < totalPages - 1 && searchedProducts.length !== foundCurrentProduct) {
+      await pages.nth(p + 1).click();
+      await page.waitForLoadState('networkidle'); // wait for table to reload
+    }else{
+        break; // Exit if all products are found
+    }
+  }
+});

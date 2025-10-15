@@ -10,7 +10,7 @@ test('Checkbox button Handling', async ({ page }) => {
     expect(cricketCheckbox).not.toBeChecked();
     expect(moviesCheckbox).not.toBeChecked();
     expect(hockeyCheckbox).not.toBeChecked();
-
+     await page.pause();
     // Way 2 Assert
     expect(await cricketCheckbox.isChecked()).toBeFalsy();
     expect(await moviesCheckbox.isChecked()).toBeFalsy();
