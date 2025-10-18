@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "clean:reports": "rimraf allure-report allure-results && mkdirp allure-report allure-results",
+    "generate:reports": "npx allure generate ./allure-results --clean",
+    "open:reports": "npx allure open ./allure-report",
+    "pretest": "npm run clean:reports",
+    "posttest": "npm run generate:reports && npm run open:reports",
+    "execute:script": "npx playwright test alertHandling.spec.ts --project=chromium",
+    "test": "npm run execute:script || npm run posttest",
     "regression": "npx playwright test",
     "webTest": "rimraf allure-report allure-results playwright-report && (npx playwright test --grep @Webst --reporter=line,allure-playwright || echo Playwright failed but continuing...) && npx allure generate allure-results --clean -o allure-report --single-file && npx allure open ./allure-report",
     "apiTest": "npx playwright test --grep @API",

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-var userId;
+let userId: string = "";
 
 test('Get user Details using GET API', async ({ request }) => {
     const response = await request.get('https://reqres.in/api/users?page=2');
