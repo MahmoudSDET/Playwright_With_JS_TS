@@ -3,14 +3,14 @@
     "target": "es2024",
     "module": "commonjs",
     "lib": ["ES2024", "dom", "esnext.asynciterable"],
-    "rootDir": "./src/TypeScriptTutorial",
+    "rootDir": ".",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "sourceMap": false,
     "skipLibCheck": true
   },
-  "include": ["src/TypeScriptTutorial", "src/features/**/*.ts", "steps/**/*.ts","support/**/*.ts"],
+  "include": [".","src/TypeScriptTutorial", "src/features/**/*.ts", "steps/**/*.ts","support/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
 

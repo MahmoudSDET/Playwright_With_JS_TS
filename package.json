@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "bdd-test": "cucumber-js",
     "clean:reports": "rimraf allure-report allure-results && mkdirp allure-report allure-results",
     "generate:reports": "npx allure generate ./allure-results --clean",
     "open:reports": "npx allure open ./allure-report",
@@ -16,7 +17,8 @@
     "playwrightTutorial": "npx playwright test --config=playwright.config2.js",
     "bddAllTest": "npx cucumber-js",
     "bddSmokeTest": "rimraf allure-report allure-results && cross-env-shell \"npx cucumber-js --tags @Smoke || exit 0\" && npx allure generate allure-results --clean -o allure-report --single-file && npx allure open ./allure-report",
-    "bddRegressionTest": "rimraf allure-report allure-results && cross-env-shell \"npx cucumber-js --tags @Regression || exit 0\" && npx allure generate allure-results --clean -o allure-report --single-file && npx allure open ./allure-report"
+    "bddRegressionTest": "rimraf allure-report allure-results && cross-env-shell \"npx cucumber-js --tags @Regression || exit 0\" && npx allure generate allure-results --clean -o allure-report --single-file && npx allure open ./allure-report",
+    "bddLoginTest": "rimraf allure-report allure-results && cross-env-shell \"npx cucumber-js --tags @Login || exit 0\" && npx allure generate allure-results --clean -o allure-report --single-file && npx allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
