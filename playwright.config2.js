@@ -14,7 +14,7 @@ module.exports = defineConfig({
     timeout: 3 * 60 * 1000
   },
   
-  testDir: './src/tests/playwrightTutorialInJs', // Your test folder
+  testDir: './src/tests/PlaywrightTutorialInTs', // Your test folder
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

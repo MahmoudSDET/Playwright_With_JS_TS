@@ -1,5 +1,5 @@
 Feature: Greeting
-		@Regression
+		@Regression @E2E
 		Scenario Outline: Say hello
 		Given a login to Ecommerce application with "<username>" and "<password>"
 		When Add "ADIDAS ORIGINAL" to Cart
