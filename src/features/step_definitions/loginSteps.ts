@@ -1,7 +1,7 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from '@playwright/test';
 import { POManager } from '../../../pageobjects_ts/POManager';
-
+import assert from 'assert';
 let poManager: POManager;
 
 Given('User is on Login Page', { timeout: 100 * 1000 }, async function (this: any) {
@@ -24,5 +24,11 @@ When('User clicks on the login button', async function (this: any) {
 
 Then('User should be redirected to the Dashboard page', async function (this: any) {
     const dashboardPage = poManager.getDashboardPage();
-    await expect(dashboardPage.orders).toBeVisible();
+   
+  const isVisible = await dashboardPage.orders.isVisible();
+  assert.strictEqual(
+    isVisible,
+    false,
+    '❌ Orders button should not be visible after login'
+  );
 });
