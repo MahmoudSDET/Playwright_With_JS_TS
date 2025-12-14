@@ -1,5 +1,5 @@
-Feature: to validate login functionality
-@Login
+Feature: validate login functionality
+@Login @allure.id=LOGIN_001
   Scenario: Successful login with valid credentials
     Given User is on Login Page
     When User enters valid username and password
