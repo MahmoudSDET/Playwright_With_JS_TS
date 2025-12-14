@@ -1,5 +1,4 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { expect } from '@playwright/test';
 import { POManager } from '../../../pageobjects_ts/POManager';
 import assert from 'assert';
 let poManager: POManager;

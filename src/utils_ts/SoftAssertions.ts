@@ -1,49 +1,52 @@
 // src/utils_ts/SoftAssertions.ts
-import { step } from 'allure-js-commons';
+
 
 export class SoftAssertions {
-  private errors: string[] = [];
 
-  async softExpect(condition: boolean, message: string) {
-    if (condition) {
-      await step(`✅ ${message}`, async () => {});
-      return;
+
+private assertions: Array<{ assertion?: () => Promise<void>, condition?: boolean, message: string }> = [];
+
+    softExpect(assertion: () => Promise<void>, message: string): void;
+    softExpect(condition: boolean, message: string): void;
+    softExpect(conditionOrAssertion: (() => Promise<void>) | boolean, message: string): void {
+        if (typeof conditionOrAssertion === 'boolean') {
+            this.assertions.push({ condition: conditionOrAssertion, message });
+        } else {
+            this.assertions.push({ assertion: conditionOrAssertion, message });
+        }
     }
+ 
+    //new
+    softExpectEqual(actual: any, expected: any, message: string): void {
+    const isEqual =
+      typeof actual === 'object' && typeof expected === 'object'
+        ? JSON.stringify(actual) === JSON.stringify(expected)
+        : actual === expected;
 
-    const errMsg = `❌ ${message}`;
-    this.errors.push(errMsg);
-
-    await step(errMsg, async () => {});
-    console.error(errMsg);
+    this.assertions.push({
+      condition: isEqual,
+      message: `${message} | expected: ${JSON.stringify(expected)}, actual: ${JSON.stringify(actual)}`
+    });
   }
 
-  async softExpectEqual(actual: any, expected: any, message: string) {
-    const condition = actual === expected;
-
-    if (condition) {
-      await step(`✅ ${message}`, async () => {});
-      return;
+  async assertAll(): Promise<void> {
+    const failures: string[] = [];
+    for (const item of this.assertions) {
+      if (item.condition !== undefined) {
+        if (!item.condition) {
+          failures.push(item.message);
+        }
+      } else if (item.assertion) {
+        try {
+          await item.assertion();
+        } catch (e) {
+          failures.push(`${item.message}: ${e}`);
+        }
+      }
     }
-
-    const errMsg = `❌ ${message} | expected: ${expected}, actual: ${actual}`;
-    this.errors.push(errMsg);
-
-    await step(errMsg, async () => {});
-    console.error(errMsg);
-  }
-
-  assertAll() {
-    if (this.errors.length > 0) {
-      const error = this.errors.join('\n');
-      this.errors = []; // 🔥 مهم جدًا
-      throw new Error(`\nSoft assertion failures:\n${error}`);
+    if (failures.length > 0) {
+      throw new Error('Soft assertion failures: ' + failures.join('; '));
     }
-
-    console.log('✅ All soft assertions passed successfully!');
-    this.errors = [];
   }
 
-  clear() {
-    this.errors = [];
-  }
 }

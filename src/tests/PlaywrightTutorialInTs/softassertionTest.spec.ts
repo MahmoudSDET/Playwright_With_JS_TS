@@ -47,7 +47,7 @@ test('Present/Not Present Assertion',async({page})=>{
     await page.goto('https://the-internet.herokuapp.com/add_remove_elements/');
     await page.locator('button[onclick="addElement()"]').click();
     const countAfterAdd = await page.locator('.added-manually').count();
-    softAssert.softExpect(countAfterAdd === 1, 'Check count after add');
+    softAssert.softExpectEqual(countAfterAdd , 1, 'Check count after add');
 
     await page.locator('button[onclick="addElement()"]').click();
     const countAfterSecondAdd = await page.locator('.added-manually').count();

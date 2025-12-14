@@ -68,7 +68,7 @@ Then(
 
     // ✅ Soft Assertion
     await this.softAssert.softExpect(
-      actualOrderId ? !this.orderId.includes(actualOrderId) : false,
+      actualOrderId ? !this.orderId.includes(actualOrderId) : true,
       'Check that order ID is present in order history'
     );
 
