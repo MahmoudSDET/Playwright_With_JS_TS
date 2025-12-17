@@ -27,7 +27,7 @@ module.exports = defineConfig({
   reporter:[
     ['html', { open: 'never' }],
     // ['html'],
-    // ['allure-playwright'],
+     ['allure-playwright'],
     // ['junit', { outputFile: 'test-results/e2e-junit-results.xml' }],
     ],
 
@@ -42,7 +42,7 @@ module.exports = defineConfig({
     // video, screenshot, headless mode
     video:'on',
     screenshot: 'on',
-    headless : false,
+    headless : true,
 
     // custom attribute
     testIdAttribute: 'autocomplete',

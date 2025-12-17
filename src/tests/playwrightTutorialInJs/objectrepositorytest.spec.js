@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 
 // Import global selectors
 const { Placeholder, Link } = require('../../selectors/globalselector.json');
-const { Tab } = require ('../../Expectedresults/globalexpected.json');
+const { Tab } = require ('../../ExpectedResults/globalexpected.json');
 
 // Write a test
 test('Object Repository in Playwright', async ({ page }) => {

@@ -1,0 +1,84 @@
+1-playwright.config.ts
+_________________________________________
+
+
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  reporter: [
+    ['line'],
+    ['allure-playwright']
+  ],
+});
+
+
+
+
+
+2.docker file content
+_____________________________________________
+
+FROM mcr.microsoft.com/playwright:v1.57.0-jammy
+
+WORKDIR /app
+
+# install Java (LTS)
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jre-headless && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+
+COPY package*.json ./
+RUN npm install && npm install -g allure-commandline
+
+COPY . .
+
+CMD ["npm", "run", "webTestDockerHeadless"]
+
+
+--------------------------Commands_Steps_________________________________________________________________
+
+1-npm run clean:reports     (Local)
+
+2- docker build -t playwright-allure .
+
+3- docker run --rm -v %cd%\allure-results:/app/allure-results -v %cd%\allure-report:/app/allure-report playwright-allure sh -c "npx playwright test || true && allure generate allure-results -o allure-report --clean --single-file"
+
+3.1- docker run --rm -v %cd%\allure-results:/app/allure-results -v %cd%\allure-report:/app/allure-report playwright-allure sh -c "npm run webTestDockerHeadless"
+
+4-start allure-report\index.html
+
+________________________________________________
+
+1-docker-compose.yml
+____________________________
+version: "3.9"
+
+services:
+  playwright:
+    image: playwright-allure
+    container_name: playwright-allure-run
+    working_dir: /app
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
+    command: >
+      sh -c "
+      npx playwright test || true &&
+      allure generate allure-results -o allure-report --clean --single-file
+      "
+
+
+2-Build Image (مرة واحدة)
+   docker build -t playwright-allure .
+
+3- Run باستخدام Docker Compose
+    docker compose up --abort-on-container-exit
+
+
+4-فتح Allure Report (Windows)
+   start allure-report\index.html
+

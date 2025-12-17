@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  playwright:
+    image: playwright-allure
+    container_name: playwright-allure-run
+    working_dir: /app
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
+    command: >
+      sh -c "npm run webTestDockerHeadless"
+    
